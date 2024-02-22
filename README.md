@@ -34,6 +34,6 @@
   This project is licensed under the  license.
   
   ## Questions
-  For any questions or concerns, please reach out to [d](d) or visit the [GitHub repository](https://github.com/d/d).
+  For any questions or concerns, please reach out to []() or visit the [GitHub repository](https://github.com//d).
   
   

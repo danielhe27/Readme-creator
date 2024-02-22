@@ -1,15 +1,3 @@
-
-// TODO: Include packages needed for this application
-
-// TODO: Create an array of questions for user input
-
-
-// TODO: Create a function to write README file
-
-
-// TODO: Create a function to initialize app
-
-
 // Function call to initialize app
 // Import necessary modules
 const inquirer = require("inquirer");
@@ -17,6 +5,8 @@ const fs = require('fs');
 
 // Function to generate Markdown content based on user responses
 function generateMarkdown(responses) {
+
+  
   return `
   # ${responses.title}
   
@@ -94,8 +84,8 @@ const questions = [
   },
   {
     type: "checkbox",
-    message: "What is the license for your project?",
     name: "license",
+    message: "What is the license for your project?",
     choices: [ "MIT", "Apache 2.0", "GPL 3.0", "BSD 3", "None"]
   },
   {
