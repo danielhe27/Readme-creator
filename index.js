@@ -1,6 +1,5 @@
-  // Function call to initialize app
-  // Import necessary modules
-  const fs = require('fs'); 
+
+   const fs = require('fs'); 
   const inquirer = require('inquirer'); 
   const generateMarkdown = require('./utils/generateMarkdown.js');
 

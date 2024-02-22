@@ -25,9 +25,10 @@ function renderLicenseInfo(license) {
   };
 
   const selectedLicense = licenseInfo[license.toLowerCase()];
-
+  
   return selectedLicense ? selectedLicense.badge : '';
 }
+
 function renderLicenseBadge(license) {
   const licenseBadges = {
     MIT: '![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)',
