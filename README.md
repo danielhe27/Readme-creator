@@ -1,8 +1,8 @@
 
-  # d
+  # 
   
   ## Description
-  d
+  
   
   ## Table of Contents
   - [Installation](#installation)
@@ -15,14 +15,14 @@
   ## Installation
   To install the necessary dependencies, run the following command:
   ```
-  d
+  npm install
   ```
   
   ## Usage
-  d
+  
   
   ## Contributing
-  Contributors to this project: d
+  Contributors to this project: 
   
   ## Tests
   To run tests, use the following command:
@@ -31,9 +31,9 @@
   ```
   
   ## License
-  This project is licensed under the  license.
+  This project is licensed under the MIT license.
   
   ## Questions
-  For any questions or concerns, please reach out to []() or visit the [GitHub repository](https://github.com//d).
+  For any questions or concerns, please reach out to []() or visit the [GitHub repository](https://github.com//).
   
   

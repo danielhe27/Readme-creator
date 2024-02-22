@@ -3,6 +3,7 @@
 const inquirer = require("inquirer");
 const fs = require('fs');
 
+
 // Function to generate Markdown content based on user responses
 function generateMarkdown(responses) {
 
@@ -84,9 +85,9 @@ const questions = [
   },
   {
     type: "checkbox",
-    name: "license",
     message: "What is the license for your project?",
-    choices: [ "MIT", "Apache 2.0", "GPL 3.0", "BSD 3", "None"]
+    name: "license",
+    choices: ["MIT", "Apache 2.0", "GPL 3.0", "BSD 3", "None"],
   },
   {
     type: "input",
