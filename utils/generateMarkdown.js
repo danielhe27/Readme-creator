@@ -1,5 +1,6 @@
 
 // If there is no license, return an empty string
+// function to render the license section of README
 function renderLicenseInfo(license) {
   const licenseInfo = {
    MIT: {
@@ -28,7 +29,7 @@ function renderLicenseInfo(license) {
   
   return selectedLicense ? selectedLicense.badge : '';
 }
-
+// this function will render the license badge
 function renderLicenseBadge(license) {
   const licenseBadges = {
     MIT: '![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)',
@@ -39,7 +40,7 @@ function renderLicenseBadge(license) {
   };
   return licenseBadges[license] || '';
 }
-
+// render license link will be used to display the license link
 function renderLicenseLink(license) {
   const licenseInfo = {
     MIT: {
@@ -81,8 +82,7 @@ function renderLicenseSection(license) {
   }
 }
 
-
-
+// this function will generate markdown for README with user input
 function generateMarkdown(data) {
   const license = data.license[0]; // Extracting the license information from user input
   const licenseSection = renderLicenseSection(license);

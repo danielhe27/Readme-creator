@@ -1,9 +1,9 @@
-
+// we are setting  the path to the file that will be created and using the fs.writeFile method to write the file.
    const fs = require('fs'); 
   const inquirer = require('inquirer'); 
   const generateMarkdown = require('./utils/generateMarkdown.js');
 
-  
+  now thos are the questions that will be asked to the user.
   const questions = [
     {
       type: "input",
@@ -54,10 +54,10 @@
       message: "What is your email address?",
     },
   ];
-
+// this function will init 
   function init() {
     console.log("Welcome to the README generator!, Answer the following questions to generate your README file.");
-      
+    // Inquirer will prompt the user with the questions stored in the questions array.
     inquirer
     .prompt(questions)
     .then((responses) => {
