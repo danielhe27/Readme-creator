@@ -93,9 +93,10 @@ const questions = [
     default: "npm test",
   },
   {
-    type: "input",
-    name: "license",
+    type: "checkbox",
     message: "What is the license for your project?",
+    name: "license",
+    choices: [ "MIT", "Apache 2.0", "GPL 3.0", "BSD 3", "None"]
   },
   {
     type: "input",
@@ -133,3 +134,9 @@ function init() {
 // Function call to initialize app
 init();
 
+
+// WHEN I enter my project title
+// THEN this is displayed as the title of the README
+// WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
+// WHEN I click on the links in the Table of Contents
+// THEN I am taken to the corresponding section of the README
