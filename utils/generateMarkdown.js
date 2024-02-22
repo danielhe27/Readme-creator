@@ -1,5 +1,5 @@
-// TODO: Create a function that returns a license badge and link based on which license is passed in
-// If there is no license, return an empty string
+
+
 function renderLicenseInfo(license) {
   const licenseInfo = {
    MIT: {
@@ -24,6 +24,14 @@ function renderLicenseInfo(license) {
     }
   };
 
+  function renderLicenseSection(license) {
+    if (license) {
+      return `## License
+    This project is licensed under the [${license} license](${renderLicenseInfo(license).link}).`;
+    } else {
+      return '';
+    }
+  }
   const selectedLicense = licenseInfo[license.toLowerCase()];
 
   if (selectedLicense) {
@@ -39,25 +47,14 @@ function renderLicenseInfo(license) {
   }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {
-  if (license) {
-    return `## License
-  This project is licensed under the [${license} license](${renderLicenseInfo(license).link}).`;
-  } else {
-    return '';
-  }
-}
-
-
-// TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  const licenseInfo = renderLicenseSection(data.license[0]);;
+  const licenseInfo = renderLicenseInfo(data.license[0]);
+
 
   return `# ${data.title}
 
-  ${licenseInfo.badge}
+
+![Github licence](http://img.shields.io/badge/license-${data.license})
 
   ## Table of Contents
   - [Installation](#installation)
@@ -79,7 +76,9 @@ function generateMarkdown(data) {
   ## Tests
   ${data.tests}
 
-  ${licenseInfo.section}
+  ## License
+${licenseInfo.badge} This project is licensed under the [${data.license[0]} license](${licenseInfo.link}).
+
   
   ## Questions
   If you have any questions, please contact me:
