@@ -1,10 +1,11 @@
 
   
-  # readme-Creator
+  # 
   
   ## Description
-  the goal of this project
   
+  
+  ![License Badge](https://shields.io/badge/license-MIT)
 
   ## Table of Contents
   - [Installation](#installation)
@@ -21,10 +22,10 @@
   ```
   
   ## Usage
-  create a professional
+  
   
   ## Contributing
-  Contributors to this project: me
+  Contributors to this project: 
   
   ## Tests
   To run tests, use the following command:
@@ -33,10 +34,9 @@
   ```
   
   ## License
-  This project is licensed under the  license.
-  ![License Badge](https://shields.io/badge/license--green)
+  This project is licensed under the MIT license.
 
   ## Questions
-  For any questions or concerns, please reach out to [jdah49d@gmail.com](jdah49d@gmail.com) or visit the [GitHub repository](https://github.com/danielhe27/readme-Creator).
+  For any questions or concerns, please reach out to []() or visit the [GitHub repository](https://github.com//).
   
   

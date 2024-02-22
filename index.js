@@ -15,6 +15,7 @@ function generateMarkdown(responses) {
   ## Description
   ${responses.description}
   
+  ![License Badge](https://shields.io/badge/license-${responses.license})
 
   ## Table of Contents
   - [Installation](#installation)
@@ -44,7 +45,6 @@ function generateMarkdown(responses) {
   
   ## License
   This project is licensed under the ${responses.license} license.
-  ![License Badge](https://shields.io/badge/license-${responses.license}-green)
 
   ## Questions
   For any questions or concerns, please reach out to [${responses.email}](${responses.email}) or visit the [GitHub repository](https://github.com/${responses.github}/${responses.title}).
