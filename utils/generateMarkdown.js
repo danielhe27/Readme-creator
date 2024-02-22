@@ -2,18 +2,26 @@
 // If there is no license, return an empty string
 function renderLicenseInfo(license) {
   const licenseInfo = {
-    mit: {
+   MIT: {
       badge: '[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)',
       link: 'https://opensource.org/licenses/MIT',
     },
-    apache: {
+    Apache: {
       badge: '[![License: Apache](https://img.shields.io/badge/License-Apache-grey.svg)](https://opensource.org/licenses/Apache-2.0)',
       link: 'https://opensource.org/licenses/Apache-2.0',
     },
-    gnu: {
+    GPL: {
       badge: '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)',
       link: 'https://www.gnu.org/licenses/gpl-3.0',
     },
+    BSD: {
+    badge: '[![License: BSD 3](https://img.shields.io/badge/License-BSD%203-Clause-yellow.svg)](https://opensource.org/licenses/BSD-3-Clause)',
+    link: 'https://opensource.org/licenses/BSD-3-Clause',
+    }
+    None: {
+      badge: '',
+      link: '',
+    }
   };
 
   const selectedLicense = licenseInfo[license.toLowerCase()];
