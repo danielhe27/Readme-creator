@@ -15,7 +15,7 @@
   ## Installation
   To install the necessary dependencies, run the following command:
   ```
-  npm install
+  d
   ```
   
   ## Usage
@@ -34,6 +34,6 @@
   This project is licensed under the  license.
   
   ## Questions
-  For any questions or concerns, please reach out to [ddd](ddd) or visit the [GitHub repository](https://github.com/dddddd/d).
+  For any questions or concerns, please reach out to [d](d) or visit the [GitHub repository](https://github.com/d/d).
   
   
