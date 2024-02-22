@@ -9,11 +9,13 @@ function generateMarkdown(responses) {
 
   
   return `
+  
   # ${responses.title}
   
   ## Description
   ${responses.description}
   
+
   ## Table of Contents
   - [Installation](#installation)
   - [Usage](#usage)
@@ -42,7 +44,8 @@ function generateMarkdown(responses) {
   
   ## License
   This project is licensed under the ${responses.license} license.
-  
+  ![License Badge](https://shields.io/badge/license-${responses.license}-green)
+
   ## Questions
   For any questions or concerns, please reach out to [${responses.email}](${responses.email}) or visit the [GitHub repository](https://github.com/${responses.github}/${responses.title}).
   
@@ -124,10 +127,3 @@ function init() {
 
 // Function call to initialize app
 init();
-
-
-// WHEN I enter my project title
-// THEN this is displayed as the title of the README
-// WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
-// WHEN I click on the links in the Table of Contents
-// THEN I am taken to the corresponding section of the README
