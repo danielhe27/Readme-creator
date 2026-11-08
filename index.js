@@ -1,9 +1,13 @@
-// we are setting  the path to the file that will be created and using the fs.writeFile method to write the file.
-   const fs = require('fs'); 
-  const inquirer = require('inquirer'); 
+// Asks questions in the terminal and writes a README from the answers.
+  const fs = require('fs');
+  const path = require('path');
+  const inquirer = require('inquirer');
   const generateMarkdown = require('./utils/generateMarkdown.js');
 
-  now thos are the questions that will be asked to the user.
+  // The generated file goes in output/ so it never overwrites this project's own README.
+  const OUTPUT_DIR = path.join(__dirname, 'output');
+
+  // These are the questions that will be asked to the user.
   const questions = [
     {
       type: "input",
@@ -38,10 +42,10 @@
       default: "npm test",
     },
     {
-      type: "checkbox",
+      type: "list",
       message: "What is the license for your project?",
       name: "license",
-      choices: ["MIT", "Apache2.0", "GPL3.0", "BSD3", "None"],
+      choices: generateMarkdown.licenseChoices,
     },
     {
       type: "input",
@@ -65,15 +69,17 @@
       const readmeContent = generateMarkdown(responses);
 
       // Write README file
-      fs.writeFile('README.md', readmeContent, (err) => {
+      fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+      const outFile = path.join(OUTPUT_DIR, 'README.md');
+      fs.writeFile(outFile, readmeContent, (err) => {
         if (err) {
           console.error(err);
         } else {
-          console.log('Successfully created README.md. Congratulations!');
+          console.log(`Successfully created ${path.relative(process.cwd(), outFile)}. Congratulations!`);
         }
       });
       });
   }
 
   // Function call to initialize app
-  init();
+  if (require.main === module) init();

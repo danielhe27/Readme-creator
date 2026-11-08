@@ -1,126 +1,88 @@
-
-// If there is no license, return an empty string
-// function to render the license section of README
-function renderLicenseInfo(license) {
-  const licenseInfo = {
-   MIT: {
-      badge: '[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)]',
-      link: 'https://opensource.org/licenses/MIT',
-    },
-    Apache: {
-      badge: '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)]',
-      link: 'https://opensource.org/licenses/Apache-2.0',
-    },
-    GPL: {
-      badge: '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]',
-      link: 'https://www.gnu.org/licenses/gpl-3.0',
-    },
-    BSD: {
-    badge: '[![License: BSD 3](https://img.shields.io/badge/License-BSD%203-Clause-yellow.svg)]',
+// License data used for the badge, the link and the license section.
+// Keys match the choices offered in index.js.
+const licenses = {
+  MIT: {
+    badge: '![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)',
+    link: 'https://opensource.org/licenses/MIT',
+  },
+  'Apache 2.0': {
+    badge: '![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)',
+    link: 'https://opensource.org/licenses/Apache-2.0',
+  },
+  'GPL 3.0': {
+    badge: '![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)',
+    link: 'https://www.gnu.org/licenses/gpl-3.0',
+  },
+  'BSD 3': {
+    badge: '![License: BSD 3-Clause](https://img.shields.io/badge/License-BSD_3--Clause-orange.svg)',
     link: 'https://opensource.org/licenses/BSD-3-Clause',
-    },
-    None: {
-      badge: '',
-      link: '',
-    }
-  };
+  },
+};
 
-  const selectedLicense = licenseInfo[license.toLowerCase()];
-  
-  return selectedLicense ? selectedLicense.badge : '';
-}
-// this function will render the license badge
+const licenseChoices = [...Object.keys(licenses), 'None'];
+
+// Returns the badge markdown, or an empty string if there is no license
 function renderLicenseBadge(license) {
-  const licenseBadges = {
-    MIT: '![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)',
-    Apache: '![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)',
-    GPL: '!License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)',
-    BSD3: '![License: BSD 3](https://img.shields.io/badge/License-BSD%203-Clause-yellow.svg)',
-    None: '',
-  };
-  return licenseBadges[license] || '';
+  return licenses[license] ? licenses[license].badge : '';
 }
-// render license link will be used to display the license link
+
+// Returns the license URL, or an empty string if there is no license
 function renderLicenseLink(license) {
-  const licenseInfo = {
-    MIT: {
-      badge: '[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)]',
-      link: 'https://opensource.org/licenses/MIT',
-    },
-    Apache: {
-      badge: '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)]',
-      link: 'https://opensource.org/licenses/Apache-2.0',
-    },
-    GPL: {
-      badge: '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]',
-      link: 'https://www.gnu.org/licenses/gpl-3.0',
-    },
-    BSD: {
-      badge: '[![License: BSD 3](https://img.shields.io/badge/License-BSD%203-Clause-yellow.svg)]',
-      link: 'https://opensource.org/licenses/BSD-3-Clause',
-    },
-    None: {
-      badge: '',
-      link: '',
-    }
-  };
-  const selectedLicense = licenseInfo;
-
-  return selectedLicense ? selectedLicense.link : '';
+  return licenses[license] ? licenses[license].link : '';
 }
 
-// If there is no license, return an empty string
+// Returns the License section, or an empty string if there is no license
 function renderLicenseSection(license) {
-  const badge = renderLicenseBadge(license);
-  const link = renderLicenseLink(license);
-
-  if (license) {
-    return `## License
-  This project is licensed under the [${license} license]`;
-  } else {
-    return '';
-  }
+  if (!licenses[license]) return '';
+  return `## License
+This project is licensed under the [${license} license](${renderLicenseLink(license)}).
+`;
 }
 
-// this function will generate markdown for README with user input
+// Builds the README from the user's answers
 function generateMarkdown(data) {
-  const license = data.license[0]; // Extracting the license information from user input
-  const licenseSection = renderLicenseSection(license);
+  const license = data.license;
+  const hasLicense = Boolean(licenses[license]);
 
   return `# ${data.title}
 
-  ${renderLicenseBadge(license)}
+${renderLicenseBadge(license)}
 
+## Description
+${data.description}
 
-  ## Table of Contents
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Contributing](#contributing)
-  - [Tests](#tests)
-  - [License](#license)
-  - [Questions](#questions)
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Tests](#tests)
+${hasLicense ? '- [License](#license)\n' : ''}- [Questions](#questions)
 
-  ## Installation
-  ${data.installation}
+## Installation
+\`\`\`
+${data.installation}
+\`\`\`
 
-  ## Usage
-  ${data.usage}
+## Usage
+${data.usage}
 
-  ## Contributing
-  ${data.contributing}
+## Contributing
+${data.contributing}
 
-  ## Tests
-  ${data.tests}
+## Tests
+\`\`\`
+${data.tests}
+\`\`\`
 
-  ${licenseSection}
-
-
-  
-  ## Questions
-  If you have any questions, please contact me:
-  - GitHub: [${data.github}](https://github.com/${data.github})
-  - Email: ${data.email}
-  `;
+${renderLicenseSection(license)}
+## Questions
+If you have any questions, please contact me:
+- GitHub: [${data.github}](https://github.com/${data.github})
+- Email: ${data.email}
+`;
 }
 
 module.exports = generateMarkdown;
+module.exports.licenseChoices = licenseChoices;
+module.exports.renderLicenseBadge = renderLicenseBadge;
+module.exports.renderLicenseLink = renderLicenseLink;
